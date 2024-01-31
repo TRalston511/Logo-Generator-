@@ -56,5 +56,16 @@ inquirer.prompt(questions).then((answers) => {
             svgElement = square.render();
             break;
     }
+
+    // dimensions for shapes
+
+    let x = 150, y = 120;
+    if(shape === 'Triangle') {
+        y = 130;
+    } else if (shape === 'Square') {
+        y = 140;
+    }
+
     
+
 });
