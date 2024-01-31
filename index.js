@@ -31,11 +31,30 @@ const questions = [
 
 // Rendering based on questions 
 
-inquirer.prompt(questions).then((answers)) => {
-    
+inquirer.prompt(questions).then((answers) => {
+
     const { text, textColor, shape, shapeColor } = answers;
     const shapeObject = new Shape();
     let svgElement = '';
 
     shapeObject.setColor(shapeColor);
-}
+
+    switch (shape) {
+        case 'circle':
+            const circle = new circle();
+            circle.setColor(shapeColor);
+            svgElement = circle.render();
+            break;
+        case 'triangle':
+            const triangle = new triangle();
+            triangle.setColor(shapeColor);
+            svgElement = triangle.render();
+            break;
+        case 'square':
+            const square = new square();
+            square.setColor(shapeColor);
+            svgElement = square.render();
+            break;
+    }
+    
+});
