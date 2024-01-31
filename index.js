@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const {circle, triangle, square} = require('./shapes');
+const {Shape, Circle, Triangle, Square} = require('./shapes');
 
 // questions for user input for shape parameters
 
@@ -34,24 +34,24 @@ const questions = [
 inquirer.prompt(questions).then((answers) => {
 
     const { text, textColor, shape, shapeColor } = answers;
-    const shapeObject = new shape();
+    const shapeObject = new Shape();
     let svgElement = '';
 
     shapeObject.setColor(shapeColor);
 
     switch (shape) {
         case 'circle':
-            const circle = new circle();
+            const circle = new Circle();
             circle.setColor(shapeColor);
             svgElement = circle.render();
             break;
         case 'triangle':
-            const triangle = new triangle();
+            const triangle = new Triangle();
             triangle.setColor(shapeColor);
             svgElement = triangle.render();
             break;
         case 'square':
-            const square = new square();
+            const square = new Square();
             square.setColor(shapeColor);
             svgElement = square.render();
             break;
