@@ -34,7 +34,7 @@ const questions = [
 inquirer.prompt(questions).then((answers) => {
 
     const { text, textColor, shape, shapeColor } = answers;
-    const shapeObject = new Shape();
+    const shapeObject = new shape();
     let svgElement = '';
 
     shapeObject.setColor(shapeColor);
@@ -60,12 +60,19 @@ inquirer.prompt(questions).then((answers) => {
     // dimensions for shapes
 
     let x = 150, y = 120;
-    if(shape === 'Triangle') {
+    if(shape === 'triangle') {
         y = 130;
-    } else if (shape === 'Square') {
+    } else if (shape === 'square') {
         y = 140;
     }
 
-    
+    const finalSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">
+    ${svgElement}
+    <text x="${x}" y="${y}" fill="${textColor}" font-size="50" text-anchor="middle">${text}</text>
+    </svg>`;
+
+    fs.writeFileSync('logo.svg', finalSvg);
+
+    console.log('Generated logo.svg');
 
 });
