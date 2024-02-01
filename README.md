@@ -8,9 +8,10 @@ An application that generates an SVG logo based on user input
 - Tests
 ## Installation
 Inquirer 8.2.4
+Jest
 ## Usage
 Generating README's
 ## License
-none
+MIT
 ## Contributing
 Tyler Ralston
